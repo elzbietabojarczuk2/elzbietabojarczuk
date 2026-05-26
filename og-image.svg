@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <!-- Editorial minimalist: warm paper, ink, single ochre accent. No gradients, no orbs. -->
+  <rect width="1200" height="630" fill="#f4f1ea"/>
+
+  <!-- oversized faint watermark -->
+  <text x="1180" y="640" font-family="Georgia, 'Times New Roman', serif" font-size="560" font-weight="700"
+        fill="#1a1714" opacity="0.04" text-anchor="end" letter-spacing="-20">EB</text>
+
+  <!-- frame rules -->
+  <line x1="60" y1="70" x2="1140" y2="70" stroke="#d8d0c2" stroke-width="2"/>
+  <text x="60" y="58" font-family="monospace" font-size="20" letter-spacing="3" fill="#8a8073">PORTFOLIO — INDEX 2026</text>
+  <text x="1140" y="58" font-family="monospace" font-size="20" letter-spacing="3" fill="#b8431f" text-anchor="end">WARSAW · PL</text>
+
+  <!-- Kicker -->
+  <text x="60" y="180" font-family="monospace" font-size="24" letter-spacing="4" fill="#b8431f">SENIOR PRODUCT DESIGNER · UX RESEARCHER</text>
+
+  <!-- Name -->
+  <text x="56" y="320" font-family="Georgia, 'Times New Roman', serif" font-size="118" font-weight="700"
+        fill="#1a1714" letter-spacing="-4">Elżbieta Bojarczuk</text>
+
+  <!-- Role -->
+  <text x="60" y="392" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="38" font-weight="600"
+        fill="#322c25">Designing the products that win their markets.</text>
+
+  <!-- Divider -->
+  <line x1="60" y1="448" x2="1140" y2="448" stroke="#d8d0c2" stroke-width="2"/>
+
+  <!-- Stats -->
+  <g font-family="Georgia, 'Times New Roman', serif" font-weight="700">
+    <text x="60"  y="540" font-size="64" fill="#1a1714">$3.6M</text>
+    <text x="60"  y="578" font-family="monospace" font-size="20" font-weight="400" letter-spacing="2" fill="#8a8073">REVENUE IMPACT</text>
+
+    <text x="360" y="540" font-size="64" fill="#1a1714">1M+</text>
+    <text x="360" y="578" font-family="monospace" font-size="20" font-weight="400" letter-spacing="2" fill="#8a8073">ACTIVATIONS</text>
+
+    <text x="600" y="540" font-size="64" fill="#1a1714">9</text>
+    <text x="600" y="578" font-family="monospace" font-size="20" font-weight="400" letter-spacing="2" fill="#8a8073">MARKETS</text>
+
+    <text x="760" y="540" font-size="64" fill="#1a1714">10+</text>
+    <text x="760" y="578" font-family="monospace" font-size="20" font-weight="400" letter-spacing="2" fill="#8a8073">YEARS</text>
+  </g>
+
+  <!-- SBDAGF tag -->
+  <text x="1140" y="540" font-family="monospace" font-size="20" letter-spacing="2" fill="#b8431f" text-anchor="end">CREATOR — SBDAGF</text>
+  <text x="1140" y="572" font-family="monospace" font-size="18" letter-spacing="2" fill="#8a8073" text-anchor="end">CC BY 4.0</text>
+</svg>
