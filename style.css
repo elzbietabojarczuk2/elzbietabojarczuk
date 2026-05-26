@@ -327,6 +327,11 @@ button { font-family: inherit; }
   text-transform: uppercase;
   color: var(--c-faint);
 }
+/* word-based stats (e.g. "Worldwide") sit smaller than numeric ones */
+.stat-number.is-word {
+  font-size: clamp(1.5rem, 3.2vw, 2.25rem);
+  font-style: italic;
+}
 
 /* Scroll hint */
 .scroll-hint {
@@ -1429,7 +1434,42 @@ a.rec-card:hover, a.rec-card:focus-visible { border-color: var(--c-accent); tran
 
 /* ══ MENTORSHIP ══════════════════════════ */
 
-.mentor-lead { max-width: 48rem; margin-bottom: 2.5rem; }
+.mentor-lead { max-width: 48rem; margin-bottom: 2rem; }
+.mentor-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--c-rule);
+  border-bottom: 1px solid var(--c-rule);
+  padding: 1.75rem 0;
+  margin-bottom: 0.75rem;
+}
+.mentor-stat { text-align: center; padding: 0 1rem; border-left: 1px solid var(--c-rule); }
+.mentor-stat:first-child { border-left: none; }
+.mentor-stat-num {
+  display: block;
+  font-family: var(--ff-display);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--c-ink);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.mentor-stat-label {
+  display: block;
+  font-family: var(--ff-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--c-faint);
+  margin-top: 0.5rem;
+}
+.mentor-source {
+  font-family: var(--ff-mono);
+  font-size: 0.72rem;
+  color: var(--c-faint);
+  margin-bottom: 2.5rem;
+}
+.mentor-source a { color: var(--c-accent); text-decoration: underline; text-underline-offset: 2px; }
 .mentor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -1621,6 +1661,48 @@ a.rec-card:hover, a.rec-card:focus-visible { border-color: var(--c-accent); tran
   .nav-toggle { display: flex; z-index: 201; position: relative; }
 
   .footer-inner { flex-direction: column; text-align: center; }
+}
+
+/* ══ MOBILE / TOUCH OPTIMIZATION (desktop unaffected) ═ */
+
+html { -webkit-tap-highlight-color: rgba(171, 61, 27, 0.18); }
+.cite-block pre { -webkit-overflow-scrolling: touch; }
+
+/* Touch devices: no sticky hover-lift; add tactile press feedback */
+@media (hover: none) {
+  .btn:hover, .pdf-download:hover, .case-card:hover, a.rec-card:hover,
+  .contact-card:hover, .stat-card:hover, .highlight-card:hover, .phase-card:hover,
+  .principle-card:hover, .audience-card:hover, .mentor-card:hover, .tag-list li:hover {
+    transform: none;
+  }
+  .btn:active, .pdf-download:active, a.rec-card:active,
+  .case-card:active, .contact-card:active { transform: scale(0.985); }
+}
+
+/* Phones: notch / home-indicator safe areas + bigger touch targets */
+@media (max-width: 48rem) {
+  .container {
+    padding-left: max(1.25rem, env(safe-area-inset-left));
+    padding-right: max(1.25rem, env(safe-area-inset-right));
+  }
+  .nav {
+    padding-left: max(1.5rem, env(safe-area-inset-left));
+    padding-right: max(1.5rem, env(safe-area-inset-right));
+  }
+  .nav-links {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+  .site-footer { padding-bottom: max(2.5rem, env(safe-area-inset-bottom)); }
+  .footer-nav { gap: 0.25rem 1.25rem; }
+  .footer-nav a { padding: 0.5rem 0; }            /* taller tap row (WCAG 2.5.8) */
+  .hero-cta { width: 100%; }
+  .hero-cta .btn { flex: 1 1 12rem; justify-content: center; }
+  .mentor-stats { grid-template-columns: 1fr; }
+  .mentor-stat { border-left: none; border-top: 1px solid var(--c-rule); padding: 1.1rem 0; }
+  .mentor-stat:first-child { border-top: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
