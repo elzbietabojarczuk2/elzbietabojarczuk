@@ -11,15 +11,30 @@ A fast, accessible, single-page personal site built with pure **HTML + CSS + van
 
 ---
 
+## 🧭 The SBDAGF methodology
+
+The site's centerpiece is the **Small Business Digital Accessibility & Growth Framework (SBDAGF)** — an open-access, accessibility-first UX methodology built for U.S. small businesses and distribution through the SBA's SBDC network.
+
+- **Read it on the site:** <https://elzbietabojarczuk.github.io/#sbdagf>
+- **Download the practitioner checklist (PDF):** [`SBDAGF_practitioner_checklist.pdf`](SBDAGF_practitioner_checklist.pdf)
+- **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+
+---
+
 ## 📁 Project structure
 
 | File | Purpose |
 | --- | --- |
 | `index.html` | Full single-page site (semantic, accessible markup) |
 | `style.css` | Design tokens, layout, responsive rules, animations |
-| `script.js` | Scroll reveal, counter animation, mobile nav, active-nav tracking |
-| `favicon.svg` | SVG favicon |
-| `og-image.svg` | Open Graph / social share card |
+| `script.js` | Scroll reveal, counters, mobile nav, newsletter + modal |
+| `accessibility.html` | WCAG 2.1 AA accessibility statement |
+| `evidence.html` | Unlisted exhibit cross-reference |
+| `welcome-email.html` | On-brand welcome email template (see `SETUP_EMAIL.md`) |
+| `SBDAGF_practitioner_checklist.pdf` | Open-access methodology checklist |
+| `elzbieta-bojarczuk-cv.pdf` | Downloadable CV |
+| `favicon.svg` · `og-image.png` | Favicon · social share card |
+| `robots.txt` · `sitemap.xml` · `site.webmanifest` | SEO + PWA metadata |
 | `.nojekyll` | Tells GitHub Pages to skip Jekyll processing |
 
 ---
@@ -27,7 +42,7 @@ A fast, accessible, single-page personal site built with pure **HTML + CSS + van
 ## 🎨 Design
 
 - **Aesthetic:** editorial minimalist — generous whitespace, hairline rules, near-square corners, oversized display type.
-- **Palette:** warm paper `#f4f1ea` · ink `#1a1714` · burnt-ochre accent `#b8431f`. No gradients, no glow.
+- **Palette:** warm paper `#f4f1ea` · ink `#1a1714` · burnt-ochre accent `#ab3d1b`. No gradients, no glow.
 - **Type:**
   - Display — **Fraunces** (serif)
   - Body — **Hanken Grotesk**

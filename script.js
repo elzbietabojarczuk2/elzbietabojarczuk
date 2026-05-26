@@ -114,6 +114,32 @@ if (newsletterForm && signupModal) {
   const okBtn      = document.getElementById('modal-ok');
   let lastFocused  = null;
 
+  /* Real welcome-email delivery via EmailJS (the only way to send from a static site).
+     Fill these 3 values from your free EmailJS account, then the welcome email
+     (welcome-email.html → pasted into your EmailJS template) is sent automatically.
+     Left blank, the form still works and shows the confirmation modal. */
+  const EMAILJS = { publicKey: '', serviceId: '', templateId: '' };
+  let emailjsReady = false;
+
+  const loadEmailJs = () => new Promise((resolve, reject) => {
+    if (window.emailjs) return resolve();
+    const s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+    s.onload = resolve;
+    s.onerror = reject;
+    document.head.appendChild(s);
+  });
+
+  const sendWelcomeEmail = async (email) => {
+    const { publicKey, serviceId, templateId } = EMAILJS;
+    if (!publicKey || !serviceId || !templateId) return; // not configured — skip silently
+    try {
+      await loadEmailJs();
+      if (!emailjsReady) { window.emailjs.init({ publicKey }); emailjsReady = true; }
+      await window.emailjs.send(serviceId, templateId, { to_email: email, email: email });
+    } catch (_) { /* delivery failed — confirmation modal still shows */ }
+  };
+
   const openModal = (email) => {
     if (emailOut) emailOut.textContent = email || 'You';
     lastFocused = document.activeElement;
@@ -127,7 +153,7 @@ if (newsletterForm && signupModal) {
     if (lastFocused) lastFocused.focus();
   };
 
-  newsletterForm.addEventListener('submit', (e) => {
+  newsletterForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const value = (emailInput.value || '').trim();
     const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
@@ -143,6 +169,11 @@ if (newsletterForm && signupModal) {
       subs.push({ email: value, at: Date.now() });
       localStorage.setItem('sbdagf_subs', JSON.stringify(subs));
     } catch (_) { /* storage unavailable — ignore */ }
+    const submitBtn = newsletterForm.querySelector('button[type="submit"]');
+    const originalLabel = submitBtn ? submitBtn.textContent : '';
+    if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+    await sendWelcomeEmail(value);
+    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalLabel; }
     openModal(value);
     newsletterForm.reset();
   });
