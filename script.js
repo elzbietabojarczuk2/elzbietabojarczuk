@@ -102,3 +102,63 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }
   });
 });
+
+/* ── Newsletter signup (front-end only — no data leaves the browser) ── */
+const newsletterForm = document.getElementById('newsletter-form');
+const signupModal = document.getElementById('signup-modal');
+
+if (newsletterForm && signupModal) {
+  const emailInput = document.getElementById('newsletter-email');
+  const emailOut   = document.getElementById('modal-email');
+  const closeBtn   = document.getElementById('modal-close');
+  const okBtn      = document.getElementById('modal-ok');
+  let lastFocused  = null;
+
+  const openModal = (email) => {
+    if (emailOut) emailOut.textContent = email || 'You';
+    lastFocused = document.activeElement;
+    signupModal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  };
+  const closeModal = () => {
+    signupModal.hidden = true;
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  };
+
+  newsletterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const value = (emailInput.value || '').trim();
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+    if (!valid) {
+      emailInput.setAttribute('aria-invalid', 'true');
+      emailInput.focus();
+      return;
+    }
+    emailInput.removeAttribute('aria-invalid');
+    // store locally only; nothing is transmitted
+    try {
+      const subs = JSON.parse(localStorage.getItem('sbdagf_subs') || '[]');
+      subs.push({ email: value, at: Date.now() });
+      localStorage.setItem('sbdagf_subs', JSON.stringify(subs));
+    } catch (_) { /* storage unavailable — ignore */ }
+    openModal(value);
+    newsletterForm.reset();
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  okBtn.addEventListener('click', closeModal);
+  signupModal.addEventListener('click', (e) => { if (e.target === signupModal) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !signupModal.hidden) closeModal(); });
+
+  // keep focus inside the dialog while open
+  signupModal.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab') return;
+    const focusable = signupModal.querySelectorAll('button');
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+}
