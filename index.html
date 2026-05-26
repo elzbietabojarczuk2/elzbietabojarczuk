@@ -12,7 +12,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
   <!-- Open Graph -->
@@ -41,6 +41,7 @@
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 
   <!-- Structured data: Person + CreativeWork (SBDAGF) -->
   <script type="application/ld+json">
@@ -63,6 +64,19 @@
       "https://adplist.org/mentors/elzbieta-bojarczuk"
     ],
     "knowsLanguage": ["pl", "en", "it"],
+    "worksFor": { "@type": "Organization", "name": "OLX Group" },
+    "hasOccupation": {
+      "@type": "Occupation",
+      "name": "Product Designer",
+      "occupationalCategory": "15-1255.01 Web and Digital Interface Designers"
+    },
+    "award": ["Hackathon AI Winner (2023)", "Speaker, UX Poland (2020)"],
+    "subjectOf": {
+      "@type": "Article",
+      "name": "How to Start an International Research Project",
+      "publisher": { "@type": "Organization", "name": "UX Magazyn" },
+      "datePublished": "2020"
+    },
     "creator": {
       "@type": "CreativeWork",
       "name": "Small Business Digital Accessibility and Growth Framework (SBDAGF)",
@@ -776,14 +790,14 @@
             <span class="contact-label">Instagram</span>
             <span class="contact-value">@ela.bojarczuk_ux</span>
           </a>
-          <a href="https://www.linkedin.com/in/elzbietabojarczuk" class="contact-card reveal" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.linkedin.com/in/elzbietabojarczuk" class="contact-card reveal" target="_blank" rel="me noopener noreferrer">
             <div class="contact-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </div>
             <span class="contact-label">LinkedIn</span>
             <span class="contact-value">in/elzbietabojarczuk</span>
           </a>
-          <a href="https://github.com/elzbietabojarczuk" class="contact-card reveal reveal--delay-1" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/elzbietabojarczuk" class="contact-card reveal reveal--delay-1" target="_blank" rel="me noopener noreferrer">
             <div class="contact-icon-wrap" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="24" height="24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             </div>
@@ -792,7 +806,7 @@
           </a>
           <a href="https://uxmagazyn.pl/discover-ux-poland-relacja-z-drugiego-dnia-ux-poland-karolina-plaskowicka/" class="contact-card reveal reveal--delay-2" target="_blank" rel="noopener noreferrer">
             <div class="contact-icon-wrap" aria-hidden="true">
-              <img src="uxpoland-logo.jpg" alt="" class="contact-logo">
+              <img src="uxpoland-logo.jpg" alt="" class="contact-logo" width="770" height="400" loading="lazy" decoding="async">
             </div>
             <span class="contact-label">Featured</span>
             <span class="contact-value">UX Poland — UX Magazyn</span>
@@ -832,6 +846,10 @@
       </div>
     </div>
   </footer>
+
+  <button class="to-top" id="to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
 
   <!-- Newsletter success dialog -->
   <div class="modal-backdrop" id="signup-modal" hidden>

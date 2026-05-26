@@ -193,3 +193,15 @@ if (newsletterForm && signupModal) {
     else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   });
 }
+
+/* ── Back to top ── */
+const toTop = document.getElementById('to-top');
+if (toTop) {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const toggleTop = () => toTop.classList.toggle('visible', window.scrollY > 600);
+  window.addEventListener('scroll', toggleTop, { passive: true });
+  toggleTop();
+  toTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+}
