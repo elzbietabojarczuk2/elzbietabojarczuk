@@ -623,6 +623,16 @@ button { font-family: inherit; }
   max-width: 44rem;
 }
 
+.achievement-label {
+  font-family: var(--ff-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-accent);
+  margin-bottom: 0.75rem;
+}
+
 .achievement-list {
   display: flex;
   flex-direction: column;
