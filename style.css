@@ -19,10 +19,10 @@
   --c-rule-on-ink: #7c7264;  /* AA 3:1 on ink */
   --c-rule-soft: #e6dfd2;
 
-  --c-accent:    #ab3d1b;   /* AA: ~5.2:1 on cream */
-  --c-accent-h:  #8c3015;
-  --c-accent-on-ink: #e8825f; /* AA on ink backgrounds */
-  --c-accent-wash: #f0e2d6;
+  --c-accent:    #435155;   /* Narragansett Green HC-157 — AA ~6.8:1 on cream */
+  --c-accent-h:  #364348;
+  --c-accent-on-ink: #b8c8cc; /* light teal, AA on ink backgrounds */
+  --c-accent-wash: #e5eaeb;   /* light teal wash */
   --c-narragansett:   #435155;   /* BM Narragansett Green HC-157 */
   --c-narragansett-h: #364348;
   --c-raindance:      #a7b3aa;   /* BM Raindance 1572 */
@@ -1202,7 +1202,7 @@ button { font-family: inherit; }
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-.footer-note a:hover { color: #f3a486; }
+.footer-note a:hover { color: var(--c-accent-on-ink); }
 
 /* ══ CASE STUDIES ════════════════════════ */
 
@@ -1542,7 +1542,7 @@ a.rec-card:hover, a.rec-card:focus-visible { border-color: var(--c-raindance); t
   transition: background 0.2s, border-color 0.2s;
 }
 .cite-copy-btn:hover { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.5); }
-.cite-copy-btn.copied { color: var(--c-accent); border-color: var(--c-accent); }
+.cite-copy-btn.copied { color: var(--c-accent-on-ink); border-color: var(--c-accent-on-ink); }
 
 /* ══ MENTORSHIP ══════════════════════════ */
 
