@@ -235,25 +235,6 @@ const updateProgress = () => {
 window.addEventListener('scroll', updateProgress, { passive: true });
 updateProgress();
 
-/* ── Custom cursor dot ── */
-const cursorDot = document.createElement('div');
-cursorDot.className = 'cursor-dot';
-document.body.appendChild(cursorDot);
-
-let dotX = 0, dotY = 0, mouseX = 0, mouseY = 0;
-document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; }, { passive: true });
-
-(function animateDot() {
-  dotX += (mouseX - dotX) * 0.12;
-  dotY += (mouseY - dotY) * 0.12;
-  cursorDot.style.transform = `translate(${dotX}px, ${dotY}px)`;
-  requestAnimationFrame(animateDot);
-})();
-
-document.querySelectorAll('a, button, [role="button"], .highlight-card, .impact-card, .mentor-card, .pub-item, .timeline-item, .stat-card, .principle-card, .audience-card, .phase-card').forEach(el => {
-  el.addEventListener('mouseenter', () => cursorDot.classList.add('cursor-hover'));
-  el.addEventListener('mouseleave', () => cursorDot.classList.remove('cursor-hover'));
-});
 
 /* ── Sparkle particles ── */
 const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');

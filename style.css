@@ -1990,30 +1990,6 @@ html { -webkit-tap-highlight-color: rgba(171, 61, 27, 0.18); }
   transition: width 0.08s linear;
 }
 
-.cursor-dot {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 10px;
-  height: 10px;
-  background: var(--c-narragansett);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99998;
-  opacity: 0.55;
-  mix-blend-mode: multiply;
-  transition: width 0.2s var(--ease-smooth), height 0.2s var(--ease-smooth), opacity 0.2s;
-  margin-top: -5px;
-  margin-left: -5px;
-}
-.cursor-dot.cursor-hover {
-  width: 22px;
-  height: 22px;
-  opacity: 0.3;
-  margin-top: -11px;
-  margin-left: -11px;
-}
-@media (hover: none) { .cursor-dot { display: none; } }
 
 .sparkle-particle {
   position: fixed;
