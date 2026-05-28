@@ -268,7 +268,7 @@ document.querySelectorAll('.btn-primary, .pdf-download, .btn-outline, .btn-inver
 });
 
 /* ── Magnetic CTA buttons ── */
-document.querySelectorAll('.btn-primary, .pdf-download').forEach(btn => {
+document.querySelectorAll('.btn-primary').forEach(btn => {
   let raf = null;
   btn.addEventListener('mousemove', e => {
     if (raf) return;
