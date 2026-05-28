@@ -23,6 +23,8 @@
   --c-accent-h:  #8c3015;
   --c-accent-on-ink: #e8825f; /* AA on ink backgrounds */
   --c-accent-wash: #f0e2d6;
+  --c-green:     #2d6a4f;   /* download CTA hover */
+  --c-green-h:   #1e4d38;
 
   --ff-display: 'Fraunces', Georgia, 'Times New Roman', serif;
   --ff-body:    'Hanken Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -731,8 +733,8 @@ button { font-family: inherit; }
 }
 .pdf-download:hover,
 .pdf-download:focus-visible {
-  background: var(--c-accent);
-  border-color: var(--c-accent);
+  background: var(--c-green);
+  border-color: var(--c-green);
   transform: translateY(-2px);
 }
 
