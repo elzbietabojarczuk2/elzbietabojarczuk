@@ -518,6 +518,14 @@ button { font-family: inherit; }
   align-items: center;
   transition: padding-left 0.25s var(--ease-smooth);
 }
+.highlight-card--labeled {
+  grid-template-rows: auto auto auto;
+  position: relative;
+  padding-top: 2rem;
+}
+.highlight-card--labeled .highlight-icon {
+  grid-row: span 3;
+}
 .about-highlights .highlight-card:last-child { border-bottom: 1px solid var(--c-rule); }
 .highlight-card:hover { padding-left: 0.5rem; }
 
@@ -538,6 +546,22 @@ button { font-family: inherit; }
   font-size: 1.875rem;
   font-weight: 700;
   color: var(--c-ink);
+  line-height: 1;
+}
+.highlight-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-50%);
+  background: var(--c-bg);
+  padding-right: 0.75rem;
+  font-family: var(--ff-display);
+  font-style: italic;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-accent);
   line-height: 1;
 }
 .highlight-text {
